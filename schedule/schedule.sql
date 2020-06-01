@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 01 2020 г., 10:57
+-- Время создания: Июн 01 2020 г., 14:07
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.1.33
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_classroom`
+-- Структура таблицы `classroom`
 --
 
-CREATE TABLE `dautov_classroom` (
+CREATE TABLE `classroom` (
   `classroom_id` int NOT NULL,
   `name` varchar(20) NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1'
@@ -36,19 +36,19 @@ CREATE TABLE `dautov_classroom` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_day`
+-- Структура таблицы `day`
 --
 
-CREATE TABLE `dautov_day` (
+CREATE TABLE `day` (
   `day_id` tinyint NOT NULL,
   `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_day`
+-- Дамп данных таблицы `day`
 --
 
-INSERT INTO `dautov_day` (`day_id`, `name`) VALUES
+INSERT INTO `day` (`day_id`, `name`) VALUES
 (1, 'Понедельник'),
 (2, 'Вторник'),
 (3, 'Среда'),
@@ -59,29 +59,29 @@ INSERT INTO `dautov_day` (`day_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_gender`
+-- Структура таблицы `gender`
 --
 
-CREATE TABLE `dautov_gender` (
+CREATE TABLE `gender` (
   `gender_id` tinyint NOT NULL,
   `name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_gender`
+-- Дамп данных таблицы `gender`
 --
 
-INSERT INTO `dautov_gender` (`gender_id`, `name`) VALUES
+INSERT INTO `gender` (`gender_id`, `name`) VALUES
 (1, 'Мужской'),
 (2, 'Женский');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_gruppa`
+-- Структура таблицы `gruppa`
 --
 
-CREATE TABLE `dautov_gruppa` (
+CREATE TABLE `gruppa` (
   `gruppa_id` int NOT NULL,
   `name` varchar(10) NOT NULL,
   `special_id` int NOT NULL,
@@ -92,20 +92,20 @@ CREATE TABLE `dautov_gruppa` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_lesson_num`
+-- Структура таблицы `lesson_num`
 --
 
-CREATE TABLE `dautov_lesson_num` (
+CREATE TABLE `lesson_num` (
   `lesson_num_id` int NOT NULL,
   `name` varchar(10) NOT NULL,
   `time_lesson` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_lesson_num`
+-- Дамп данных таблицы `lesson_num`
 --
 
-INSERT INTO `dautov_lesson_num` (`lesson_num_id`, `name`, `time_lesson`) VALUES
+INSERT INTO `lesson_num` (`lesson_num_id`, `name`, `time_lesson`) VALUES
 (1, '1 пара', '08:30:00'),
 (2, '2 пара', '10:10:00'),
 (3, '3 пара', '12:20:00'),
@@ -115,10 +115,10 @@ INSERT INTO `dautov_lesson_num` (`lesson_num_id`, `name`, `time_lesson`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_lesson_plan`
+-- Структура таблицы `lesson_plan`
 --
 
-CREATE TABLE `dautov_lesson_plan` (
+CREATE TABLE `lesson_plan` (
   `lesson_plan_id` int NOT NULL,
   `gruppa_id` int NOT NULL,
   `subject_id` int NOT NULL,
@@ -128,20 +128,20 @@ CREATE TABLE `dautov_lesson_plan` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_otdel`
+-- Структура таблицы `otdel`
 --
 
-CREATE TABLE `dautov_otdel` (
+CREATE TABLE `otdel` (
   `otdel_id` smallint NOT NULL,
   `name` varchar(50) NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_otdel`
+-- Дамп данных таблицы `otdel`
 --
 
-INSERT INTO `dautov_otdel` (`otdel_id`, `name`, `active`) VALUES
+INSERT INTO `otdel` (`otdel_id`, `name`, `active`) VALUES
 (1, 'Программирование', 1),
 (2, 'Общеобразовательные дисциплины', 1),
 (3, 'Строительство', 1);
@@ -149,10 +149,10 @@ INSERT INTO `dautov_otdel` (`otdel_id`, `name`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_role`
+-- Структура таблицы `role`
 --
 
-CREATE TABLE `dautov_role` (
+CREATE TABLE `role` (
   `role_id` tinyint NOT NULL,
   `sys_name` varchar(20) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -160,10 +160,10 @@ CREATE TABLE `dautov_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_role`
+-- Дамп данных таблицы `role`
 --
 
-INSERT INTO `dautov_role` (`role_id`, `sys_name`, `name`, `active`) VALUES
+INSERT INTO `role` (`role_id`, `sys_name`, `name`, `active`) VALUES
 (1, 'admin', 'Администратор', 1),
 (2, 'manager', 'Менеджер', 1),
 (3, 'teacher', 'Преподаватель', 1),
@@ -172,10 +172,10 @@ INSERT INTO `dautov_role` (`role_id`, `sys_name`, `name`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_schedule`
+-- Структура таблицы `schedule`
 --
 
-CREATE TABLE `dautov_schedule` (
+CREATE TABLE `schedule` (
   `schedule_id` int NOT NULL,
   `lesson_plan_id` int NOT NULL,
   `day_id` tinyint NOT NULL,
@@ -186,10 +186,10 @@ CREATE TABLE `dautov_schedule` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_special`
+-- Структура таблицы `special`
 --
 
-CREATE TABLE `dautov_special` (
+CREATE TABLE `special` (
   `special_id` int NOT NULL,
   `name` varchar(250) NOT NULL,
   `otdel_id` smallint NOT NULL,
@@ -197,10 +197,10 @@ CREATE TABLE `dautov_special` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп данных таблицы `dautov_special`
+-- Дамп данных таблицы `special`
 --
 
-INSERT INTO `dautov_special` (`special_id`, `name`, `otdel_id`, `active`) VALUES
+INSERT INTO `special` (`special_id`, `name`, `otdel_id`, `active`) VALUES
 (1, 'Информационные системы', 1, 1),
 (2, 'Нефтегазовое дело', 2, 1),
 (3, 'Строительство и эксплуатация зданий и сооружений', 3, 1),
@@ -210,10 +210,10 @@ INSERT INTO `dautov_special` (`special_id`, `name`, `otdel_id`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_student`
+-- Структура таблицы `student`
 --
 
-CREATE TABLE `dautov_student` (
+CREATE TABLE `student` (
   `user_id` bigint NOT NULL,
   `gruppa_id` int NOT NULL,
   `num_zach` varchar(10) NOT NULL
@@ -222,10 +222,10 @@ CREATE TABLE `dautov_student` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_subject`
+-- Структура таблицы `subject`
 --
 
-CREATE TABLE `dautov_subject` (
+CREATE TABLE `subject` (
   `subject_id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `otdel_id` smallint NOT NULL,
@@ -236,10 +236,10 @@ CREATE TABLE `dautov_subject` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_teacher`
+-- Структура таблицы `teacher`
 --
 
-CREATE TABLE `dautov_teacher` (
+CREATE TABLE `teacher` (
   `user_id` bigint NOT NULL,
   `otdel_id` smallint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -247,10 +247,10 @@ CREATE TABLE `dautov_teacher` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `dautov_user`
+-- Структура таблицы `user`
 --
 
-CREATE TABLE `dautov_user` (
+CREATE TABLE `user` (
   `user_id` bigint NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `firstname` varchar(50) DEFAULT NULL,
@@ -268,61 +268,61 @@ CREATE TABLE `dautov_user` (
 --
 
 --
--- Индексы таблицы `dautov_classroom`
+-- Индексы таблицы `classroom`
 --
-ALTER TABLE `dautov_classroom`
+ALTER TABLE `classroom`
   ADD PRIMARY KEY (`classroom_id`);
 
 --
--- Индексы таблицы `dautov_day`
+-- Индексы таблицы `day`
 --
-ALTER TABLE `dautov_day`
+ALTER TABLE `day`
   ADD PRIMARY KEY (`day_id`);
 
 --
--- Индексы таблицы `dautov_gender`
+-- Индексы таблицы `gender`
 --
-ALTER TABLE `dautov_gender`
+ALTER TABLE `gender`
   ADD PRIMARY KEY (`gender_id`);
 
 --
--- Индексы таблицы `dautov_gruppa`
+-- Индексы таблицы `gruppa`
 --
-ALTER TABLE `dautov_gruppa`
+ALTER TABLE `gruppa`
   ADD PRIMARY KEY (`gruppa_id`),
   ADD KEY `special_id` (`special_id`);
 
 --
--- Индексы таблицы `dautov_lesson_num`
+-- Индексы таблицы `lesson_num`
 --
-ALTER TABLE `dautov_lesson_num`
+ALTER TABLE `lesson_num`
   ADD PRIMARY KEY (`lesson_num_id`);
 
 --
--- Индексы таблицы `dautov_lesson_plan`
+-- Индексы таблицы `lesson_plan`
 --
-ALTER TABLE `dautov_lesson_plan`
+ALTER TABLE `lesson_plan`
   ADD PRIMARY KEY (`lesson_plan_id`),
   ADD KEY `gruppa_id` (`gruppa_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `subject_id` (`subject_id`);
 
 --
--- Индексы таблицы `dautov_otdel`
+-- Индексы таблицы `otdel`
 --
-ALTER TABLE `dautov_otdel`
+ALTER TABLE `otdel`
   ADD PRIMARY KEY (`otdel_id`) USING BTREE;
 
 --
--- Индексы таблицы `dautov_role`
+-- Индексы таблицы `role`
 --
-ALTER TABLE `dautov_role`
+ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Индексы таблицы `dautov_schedule`
+-- Индексы таблицы `schedule`
 --
-ALTER TABLE `dautov_schedule`
+ALTER TABLE `schedule`
   ADD PRIMARY KEY (`schedule_id`),
   ADD KEY `classroom_id` (`classroom_id`),
   ADD KEY `day_id` (`day_id`),
@@ -330,37 +330,37 @@ ALTER TABLE `dautov_schedule`
   ADD KEY `lesson_plan_id` (`lesson_plan_id`);
 
 --
--- Индексы таблицы `dautov_special`
+-- Индексы таблицы `special`
 --
-ALTER TABLE `dautov_special`
+ALTER TABLE `special`
   ADD PRIMARY KEY (`special_id`),
   ADD KEY `otdel_id` (`otdel_id`);
 
 --
--- Индексы таблицы `dautov_student`
+-- Индексы таблицы `student`
 --
-ALTER TABLE `dautov_student`
+ALTER TABLE `student`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `gruppa_id` (`gruppa_id`);
 
 --
--- Индексы таблицы `dautov_subject`
+-- Индексы таблицы `subject`
 --
-ALTER TABLE `dautov_subject`
+ALTER TABLE `subject`
   ADD PRIMARY KEY (`subject_id`),
   ADD KEY `otdel_id` (`otdel_id`);
 
 --
--- Индексы таблицы `dautov_teacher`
+-- Индексы таблицы `teacher`
 --
-ALTER TABLE `dautov_teacher`
+ALTER TABLE `teacher`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `otdel_id` (`otdel_id`);
 
 --
--- Индексы таблицы `dautov_user`
+-- Индексы таблицы `user`
 --
-ALTER TABLE `dautov_user`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `role_id` (`role_id`),
   ADD KEY `gender_id` (`gender_id`);
@@ -370,60 +370,60 @@ ALTER TABLE `dautov_user`
 --
 
 --
--- Ограничения внешнего ключа таблицы `dautov_gruppa`
+-- Ограничения внешнего ключа таблицы `gruppa`
 --
-ALTER TABLE `dautov_gruppa`
-  ADD CONSTRAINT `dautov_gruppa_ibfk_1` FOREIGN KEY (`special_id`) REFERENCES `dautov_special` (`special_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `gruppa`
+  ADD CONSTRAINT `gruppa_ibfk_1` FOREIGN KEY (`special_id`) REFERENCES `special` (`special_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_lesson_plan`
+-- Ограничения внешнего ключа таблицы `lesson_plan`
 --
-ALTER TABLE `dautov_lesson_plan`
-  ADD CONSTRAINT `dautov_lesson_plan_ibfk_1` FOREIGN KEY (`gruppa_id`) REFERENCES `dautov_gruppa` (`gruppa_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_lesson_plan_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `dautov_teacher` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_lesson_plan_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `dautov_subject` (`subject_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `lesson_plan`
+  ADD CONSTRAINT `lesson_plan_ibfk_1` FOREIGN KEY (`gruppa_id`) REFERENCES `gruppa` (`gruppa_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `lesson_plan_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `teacher` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `lesson_plan_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_schedule`
+-- Ограничения внешнего ключа таблицы `schedule`
 --
-ALTER TABLE `dautov_schedule`
-  ADD CONSTRAINT `dautov_schedule_ibfk_1` FOREIGN KEY (`classroom_id`) REFERENCES `dautov_classroom` (`classroom_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_schedule_ibfk_2` FOREIGN KEY (`day_id`) REFERENCES `dautov_day` (`day_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_schedule_ibfk_3` FOREIGN KEY (`lesson_num_id`) REFERENCES `dautov_lesson_num` (`lesson_num_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_schedule_ibfk_4` FOREIGN KEY (`lesson_plan_id`) REFERENCES `dautov_lesson_plan` (`lesson_plan_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `schedule`
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`classroom_id`) REFERENCES `classroom` (`classroom_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`day_id`) REFERENCES `day` (`day_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `schedule_ibfk_3` FOREIGN KEY (`lesson_num_id`) REFERENCES `lesson_num` (`lesson_num_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `schedule_ibfk_4` FOREIGN KEY (`lesson_plan_id`) REFERENCES `lesson_plan` (`lesson_plan_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_special`
+-- Ограничения внешнего ключа таблицы `special`
 --
-ALTER TABLE `dautov_special`
-  ADD CONSTRAINT `dautov_special_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `dautov_otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `special`
+  ADD CONSTRAINT `special_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_student`
+-- Ограничения внешнего ключа таблицы `student`
 --
-ALTER TABLE `dautov_student`
-  ADD CONSTRAINT `dautov_student_ibfk_1` FOREIGN KEY (`gruppa_id`) REFERENCES `dautov_gruppa` (`gruppa_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`gruppa_id`) REFERENCES `gruppa` (`gruppa_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_subject`
+-- Ограничения внешнего ключа таблицы `subject`
 --
-ALTER TABLE `dautov_subject`
-  ADD CONSTRAINT `dautov_subject_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `dautov_otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `subject`
+  ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_teacher`
+-- Ограничения внешнего ключа таблицы `teacher`
 --
-ALTER TABLE `dautov_teacher`
-  ADD CONSTRAINT `dautov_teacher_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `dautov_otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `teacher`
+  ADD CONSTRAINT `teacher_ibfk_1` FOREIGN KEY (`otdel_id`) REFERENCES `otdel` (`otdel_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Ограничения внешнего ключа таблицы `dautov_user`
+-- Ограничения внешнего ключа таблицы `user`
 --
-ALTER TABLE `dautov_user`
-  ADD CONSTRAINT `dautov_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `dautov_student` (`user_id`),
-  ADD CONSTRAINT `dautov_user_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `dautov_teacher` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `dautov_user_ibfk_5` FOREIGN KEY (`role_id`) REFERENCES `dautov_role` (`role_id`),
-  ADD CONSTRAINT `dautov_user_ibfk_6` FOREIGN KEY (`gender_id`) REFERENCES `dautov_gender` (`gender_id`);
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `student` (`user_id`),
+  ADD CONSTRAINT `user_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `teacher` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `user_ibfk_5` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`),
+  ADD CONSTRAINT `user_ibfk_6` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`gender_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
