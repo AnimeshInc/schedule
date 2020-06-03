@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
@@ -17,42 +13,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="template/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="template/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="template/css/skins/skin-blue.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -60,9 +24,9 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Расписание</b></span>
     </a>
@@ -84,11 +48,6 @@ desired effect
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
                   <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
                       <!-- Message title and timestamp -->
                       <h4>
                         Support Team
@@ -162,13 +121,42 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Здравствуйте, Даутов Диас</span>
+              <span class="hidden-xs">Здравствуйте, <?php
+                  $link = mysqli_connect('localhost', 'root', 'root', 'schedule');
+                  $sql = 'SELECT CONCAT(user.lastname," ", user.firstname," ", user.patronymic) AS "FIO"
+                  FROM user';
+                  $result = mysqli_query($link, $sql);
+                  {
+                    while($row=mysqli_fetch_array($result))
+                    {
+                    echo $row['FIO'];
+                    }
+                  }
+                  ?>
+                  </span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
                 <p>
-                  Даутов Диас - Администратор
+                  <?php
+                  $link = mysqli_connect('localhost', 'root', 'root', 'schedule');
+                  $sql = 'SELECT role.name as fd, 
+                  CONCAT(user.lastname," ", user.firstname," ", 
+                  user.patronymic) AS "FIO"
+                  FROM user
+                  INNER JOIN role
+                  ON user.role_id = role.role_id';
+                  $result = mysqli_query($link, $sql);
+                  {
+                    while($row=mysqli_fetch_array($result))
+                    {
+                      $fio = $row['FIO'];
+                      $role = $row['fd'];
+                      echo $fio . ' - ' . $role;
+                    }
+                  }
+                  ?>
                 </p>
               </li>
               <li class="user-footer">
@@ -176,7 +164,9 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Профиль</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Выход</a>
+                  <form method="POST">
+                    <button type="submit" class="btn btn-default btn-flat" name="out">Выход</button>
+                  </form>
                 </div>
               </li>
             </ul>
@@ -194,7 +184,6 @@ desired effect
     </section>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -204,6 +193,6 @@ desired effect
         <li class="active">Here</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content container-fluid">
+

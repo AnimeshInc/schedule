@@ -1,5 +1,5 @@
 <?php
-abstract class BaseMap{
+abstract class BaseMap extends config{
     protected $db;
     function __construct()
     {
@@ -18,4 +18,3 @@ abstract class BaseMap{
     }
 }
 ?>
-
