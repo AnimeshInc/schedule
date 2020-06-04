@@ -4,7 +4,7 @@ class User extends Table {
     public $gruppa_id = 0;
     public $subject_id = 0;
     public $user_id = 0;
-    function validate(){
+    public function validate(){
         return false;
     }
 }

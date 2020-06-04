@@ -25,7 +25,7 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg"><?=$message;?></p>
-    <form action="auth.php" method="post">
+    <form action="../auth.php" method="post">
       <div class="form-group has-feedback">
         <input name="login" text="email" class="login" placeholder="Логин">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

@@ -5,7 +5,7 @@ class User extends Table {
     public $day_id = 0;
     public $lesson_num_id = 0;
     public $classroom_id = 0;
-    function validate(){
+    public function validate(){
         return false;
     }
 }

@@ -1,5 +1,8 @@
 <?php
 abstract class BaseMap extends config{
+    /**
+    * @var PDO
+    */
     protected $db;
     function __construct()
     {
