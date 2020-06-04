@@ -121,42 +121,15 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Здравствуйте, <?php
-                  $link = mysqli_connect('localhost', 'root', 'root', 'schedule');
-                  $sql = 'SELECT CONCAT(user.lastname," ", user.firstname," ", user.patronymic) AS "FIO"
-                  FROM user';
-                  $result = mysqli_query($link, $sql);
-                  {
-                    while($row=mysqli_fetch_array($result))
-                    {
-                    echo $row['FIO'];
-                    }
-                  }
-                  ?>
+              <span class="hidden-xs">Здравствуйте, <?=$_SESSION['fio'];?>
                   </span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
                 <p>
-                  <?php
-                  $link = mysqli_connect('localhost', 'root', 'root', 'schedule');
-                  $sql = 'SELECT role.name as fd, 
-                  CONCAT(user.lastname," ", user.firstname," ", 
-                  user.patronymic) AS "FIO"
-                  FROM user
-                  INNER JOIN role
-                  ON user.role_id = role.role_id';
-                  $result = mysqli_query($link, $sql);
-                  {
-                    while($row=mysqli_fetch_array($result))
-                    {
-                      $fio = $row['FIO'];
-                      $role = $row['fd'];
-                      echo $fio . ' - ' . $role;
-                    }
-                  }
-                  ?>
+                  <?=$_SESSION['fio'];?>
+                  <?=$_SESSION['roleName'];?>
                 </p>
               </li>
               <li class="user-footer">
