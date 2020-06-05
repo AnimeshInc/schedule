@@ -19,8 +19,7 @@ $page = Helper::clearInt($_GET['page']);
     <section class="content-header">
     <h1>Список преподавателей</h1>
     <ol class="breadcrumb">
-    <li><a href="/index.php"><i class="fa
-    fa-dashboard"></i> Главная</a></li>
+    <li><a href="/index.php"><i class="fa fa-dashboard"></i> Главная</a></li>
     <li class="active">Список
     преподавателей</li>
     </ol>
@@ -36,8 +35,7 @@ $page = Helper::clearInt($_GET['page']);
     if ($teachers) {
     ?>
     
-    <table id="example2" class="table table-
-    bordered table-hover">
+    <table id="example2" class="table table-bordered table-hover">
     
     <thead>
     <tr>
@@ -68,8 +66,7 @@ echo '</tr>';
 </tbody>
 </table>
 <?php } else {
-echo 'Ни одного преподавателя не
-найдено';
+echo 'Ни одного преподавателя не найдено';
 } ?>
 </div>
 <div class="box-body">

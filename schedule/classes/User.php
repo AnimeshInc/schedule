@@ -11,7 +11,7 @@ class User extends Table {
     public $role_id = 0;
     public $active = 1;
 
-function validate(){
+    public function validate(){
     if (!empty($this->lastname) &&
         !empty($this->firstname) &&
         !empty($this->login) &&

@@ -12,11 +12,9 @@ require_once 'template/header.php';
 <h1><?=$header;?></h1>
 <ol class="breadcrumb">
 
-<li><a href="/index.php"><i class="fa fa-
-dashboard"></i> Главная</a></li>
+<li><a href="/index.php"><i class="fa fa-dashboard"></i> Главная</a></li>
 
-<li><a href="list-
-student.php">Студенты</a></li>
+<li><a href="list-student.php">Студенты</a></li>
 
 <li class="active"><?=$header;?></li>
 </ol>
@@ -33,8 +31,12 @@ student.php">Студенты</a></li>
 <div class="form-group">
 <label>Группа</label>
 <select class="form-control" name="gruppa_id">
-<?= Helper::printSelectOptions($student->gruppa_id, (new GruppaMap())->arrOtdels());?>
+<?= Helper::printSelectOptions($student->gruppa_id, (new GruppaMap())->arrGruppas());?>
 </select>
+</div>
+<div class="form-group">
+<label>Номер зачетной книжки</label>
+<input type="text" class="form-control" name="num_zach" required="required" value="<?=$student->num_zach;?>">
 </div>
 <div class="form-group">
 <label>Заблокировать</label>

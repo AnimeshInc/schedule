@@ -5,11 +5,11 @@ class UserMap extends BaseMap {
         $res = $this->db->query("SELECT user.user_id,
         CONCAT(user.lastname,' ', user.firstname, ' ',
         user.patronymic) AS fio, "
-        . "user.pass, role.sys_name, role.name
+        . " user.pass, role.sys_name, role.name
         FROM user "
-        . "INNER JOIN role ON
+        . " INNER JOIN role ON
         user.role_id=role.role_id "
-        . "WHERE user.login = $login AND
+        . " WHERE user.login = $login AND
         user.active = 1");
         $user = $res->fetch(PDO::FETCH_OBJ);
         if ($user) {
@@ -25,7 +25,7 @@ class UserMap extends BaseMap {
             $res = $this->db->query("SELECT user_id, lastname,
             firstname, patronymic, login, pass, gender_id, birthday,
             role_id, active "
-            . "FROM user WHERE user_id = $id");
+            . " FROM user WHERE user_id = $id");
             $user = $res->fetchObject("User");
             if ($user) {
             return $user;
@@ -60,10 +60,10 @@ class UserMap extends BaseMap {
         $login = $this->db->quote($user->login);
         $pass = $this->db->quote($user->pass);
         $birthday = $this->db->quote($user->birthday);
-        if ($this->db->exec("INSERT INTO user(lastname,
-            firstname, patronymic, login, pass, gender_id, birthday,
+        if ($this->db->exec("INSERT INTO user (lastname, 
+            firstname, patronymic, login, pass, gender_id, birthday, 
             role_id, active)"
-            . " VALUES($lastname, $firstname, $patronymic, $login,
+            . " VALUES ($lastname, $firstname, $patronymic, $login,
             $pass, $user->gender_id, $birthday, $user->role_id,
             $user->active)") == 1) {
             $user->user_id = $this->db->lastInsertId();
@@ -82,7 +82,7 @@ class UserMap extends BaseMap {
         $lastname, firstname = $firstname, patronymic =
         $patronymic,"
         . " login = $login, pass = $pass, gender_id = $user->gender_id, birthday = $birthday, role_id = $user->role_id, active = $user->active "
-        . "WHERE user_id = ".$user->user_id) == 1) {
+        . " WHERE user_id = ".$user->user_id) == 1) {
             return true;
         }
         return false;
@@ -103,7 +103,7 @@ class UserMap extends BaseMap {
             user.patronymic) AS fio,"
             . " user.login, user.birthday, gender.name AS
             gender, role.name AS role, user.active FROM user "
-            . "INNER JOIN gender ON
+            . " INNER JOIN gender ON
             user.gender_id=gender.gender_id INNER JOIN role ON
             user.role_id=role.role_id WHERE user.user_id = $id");
             return $res->fetch(PDO::FETCH_OBJ);
