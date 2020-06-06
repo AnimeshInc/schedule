@@ -39,5 +39,12 @@
     <a href="list-classroom.php"><i class="fa fa-users"></i><span>Аудитории</span></a>
     </li>
 </ul>
+
+<ul class="sidebar-menu">
+    <li class="header">Управление расписанием</li>
+    <li <?=($_SERVER['PHP_SELF']=='/list-teacher-schedule.php')?'class="active"':'';?>>
+    <a href="list-teacher-schedule.php"><i class="fa fa-users"></i><span>Расписание Преподавателей</span></a>
+    </li>
+</ul>
 </section>
 </aside>

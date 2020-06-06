@@ -128,7 +128,7 @@
               <!-- The user image in the menu -->
               <li class="user-header">
                 <p>
-                  <?=$_SESSION['fio'];?>
+                  <?=$_SESSION['fio'];?> <br>
                   <?=$_SESSION['roleName'];?>
                 </p>
               </li>
